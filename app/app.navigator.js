@@ -1,22 +1,24 @@
 import React from "react";
-import { DrawerNavigator } from "react-navigation";
+import { createStackNavigator } from "react-navigation-stack";
+import { createAppContainer } from "react-navigation";
 import SplashScreen from "./screens/splash.screen";
+import LoginScreen from "./screens/login.screen";
 
-const Splash = {
-  screen: SplashScreen,
-  navigationOptions: {
-    header: null
-  }
-};
-
-const RouteConfig = {
-  initialRoute: "Splash"
-};
-const AppNavigator = DrawerNavigator(
-  {
-    Splash
+const NavStack = createStackNavigator({
+  SplashScreen: {
+    screen: SplashScreen,
+    navigationOptions: {
+      header: null
+    }
   },
-  RouteConfig
-);
+  Login: {
+    screen: LoginScreen,
+    navigationOptions: {
+      header: null
+    }
+  }
+});
+
+const AppNavigator = createAppContainer(NavStack);
 
 export default AppNavigator;
