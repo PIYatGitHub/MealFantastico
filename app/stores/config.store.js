@@ -3,6 +3,7 @@ import firebaseConfig from "../../configs/fbase.js"; //Make your own file or app
 
 export default class ConfigStre {
   constructor() {
+    console.log(firebaseConfig);
     firebase.initializeApp(firebaseConfig);
     this.splashTime = 1000;
     this.splashImg = require("../../images/splash.jpg");

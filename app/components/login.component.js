@@ -11,42 +11,34 @@ export default class Login extends Component {
   constructor(props) {
     super(props);
   }
-
-  async signIn() {
+  signIn() {
     const { auth } = this.props.stores;
     const { navigate } = this.props.navigation;
-    console.log("email and pass before send...", this.email, this.password);
-    const result = await auth.signIn({
-      email: this.email,
-      password: this.password
+    auth.signIn({ email: this.email, password: this.password }).then(() => {
+      navigate("Match");
     });
-    if (result) {
-      console.log("result is:", result);
-    }
-    navigate("Match");
   }
-
   render() {
     const { auth } = this.props.stores;
     return (
       <Form>
         <Item style={{ marginBottom: 10 }} rounded>
-          <Icon style={{ color: "#fff" }} name="md-person"></Icon>
+          <Icon style={{ color: "#fff" }} name="md-person" />
           <Input
             style={{ color: "#fff" }}
-            placeholder="email"
+            placeholder="Please Enter Email"
             placeholderTextColor="#fff"
-            onChange={e => (this.email = e.nativeEvent.text.trim())}
+            onChangeText={email => (this.email = email)}
           />
         </Item>
         <Item style={{ marginBottom: 10 }} rounded>
-          <Icon style={{ color: "#fff" }} name="md-unlock"></Icon>
+          <Icon style={{ color: "#fff" }} name="md-unlock" />
           <Input
             style={{ color: "#fff" }}
-            placeholder="password"
+            placeholder="Please Enter Password"
             placeholderTextColor="#fff"
             secureTextEntry={true}
-            onChange={e => (this.password = e.nativeEvent.text.trim())}
+            onChangeText={pass => (this.password = pass)}
           />
         </Item>
         <Button

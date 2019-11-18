@@ -12,6 +12,7 @@
     "firebase": "^7.4.0",
     "firebase-nest": "^0.7.1",
     "mobx": "^5.15.0",
+    "mobx-firebase-store": "^1.2.1",
     "mobx-react": "^5.4.4",
     "native-base": "^2.13.8",
     "react": "16.8.3",
